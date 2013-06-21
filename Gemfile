@@ -11,15 +11,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'haml'
 gem 'haml-rails'
 gem 'redcarpet'
-
-# activeadmin - TODO, this is a rails 4 hack.
-# gem 'devise',              github: 'plataformatec/devise',     branch: 'rails4'
-# # gem 'formtastic',          github: 'justinfrench/formtastic',  branch: 'rails4beta'
-# gem 'responders',          github: 'plataformatec/responders'
-# gem 'inherited_resources', github: 'josevalim/inherited_resources'
-# gem 'ransack',             github: 'ernie/ransack',            branch: 'rails-4'
-# gem 'activeadmin',         github: 'akashkamboj/active_admin', branch: 'rails4'
-# gem "jquery-rails", "2.3.0"
+gem 'unicorn'
 
 gem "rails_admin", github: 'sferik/rails_admin',     branch: 'rails-4'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

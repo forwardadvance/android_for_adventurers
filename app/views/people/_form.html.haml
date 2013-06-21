@@ -6,14 +6,17 @@
         - @person.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  %p.field
     = f.label :name
     = f.text_field :name
-  .field
-    = f.label :pirate_name
-    = f.text_field :pirate_name
-  .field
+  %p.field
     = f.label :email
     = f.text_field :email
-  .actions
-    = f.submit 'Save'
+  %p.field
+    = f.label :password
+    = f.text_field :password
+  %p.field
+    = f.label :password_confirmation
+    = f.text_field :password_confirmation
+  %p.actions
+    %button 'Sign up'

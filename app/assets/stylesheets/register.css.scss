@@ -1,0 +1,9 @@
+@import 'includes';
+.people.new, .people.create {
+  .container {
+    @include col(8);
+    margin:0 auto;
+  }
+  form {
+  }
+}

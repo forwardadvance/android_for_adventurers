@@ -4,10 +4,11 @@ class CreatePeople < ActiveRecord::Migration
       t.string :name
       t.string :pirate_name
       t.string :email
+      t.string :source
       t.string :level
       t.string :current_exercise_id
-      t.boolean :admin, :default=> false
-      t.string :enabled, :default=> true
+      t.boolean :admin, :default => false
+      t.string :enabled, :default => true
       t.string :password_digest
 
       t.timestamps

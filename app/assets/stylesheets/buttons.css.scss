@@ -8,6 +8,7 @@
   }
   li {
     float:left;
+    margin-left:$padding;
   }
 }
 
@@ -27,6 +28,7 @@ button, a.button {
   text-shadow: 0px 1px lighten($blue, 30%), 0px -2px darken($blue, 70%);
   text-decoration:none;
   @include transition;
+  text-align:center;
 }
 button:hover, .button:hover {
   color:white;
@@ -36,4 +38,8 @@ button:hover, .button:hover {
   border-right:3px solid lighten($blue,20%);
   border-left:3px solid darken($blue,20%);
   border-top:3px solid darken($blue,20%);
+}
+button.large, a.button.large {
+  font-size:$font-size*$relative_size;
+  padding:$padding $padding*2;
 }

@@ -4,7 +4,7 @@ SpaceJavascript::Application.routes.draw do
   root "take_me_back#index"
 
   resources :people
-  get "signup" => "people#signup", :as => :signup
+  get "signup" => "people#new", :as => :signup
 
   get "login" => "logins#new", :as => :login
   post "login" => "logins#create"

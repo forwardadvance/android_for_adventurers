@@ -8,4 +8,12 @@
     @include col(4);
     margin:0 auto;
   }
+  p.join {
+    padding-top:50px;
+
+    a.button {
+      @include col(6);
+      margin:0 auto;
+    }
+  }
 }

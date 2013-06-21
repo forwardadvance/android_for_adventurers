@@ -11,6 +11,7 @@
  *= require base
  *= require exercise
  *= require signin
+ *= require register
  *= require splash
  *= require map
  *= require header
