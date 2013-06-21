@@ -11,6 +11,10 @@ module ApplicationHelper
     @current_person
   end
 
+  def admin_user?
+    @current_person && @current_person.admin
+  end
+
   def body_class
     bc = []
     bc << params[:controller].gsub('/', ' ')

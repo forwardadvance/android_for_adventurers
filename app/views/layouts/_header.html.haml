@@ -4,6 +4,9 @@
   %nav.button_block
     %ul
       -if signed_in?
+        -if admin_user?
+          %li
+            =link_to "Admin", rails_admin_path, :class => "button"
         %li
           =link_to "Sign out", logout_path, :class => "button"
       -else

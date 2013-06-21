@@ -65,4 +65,12 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+
+    def admin_required
+      unless logged_in? && admin_user?
+        session[:requested_url] = request.fullpath
+        redirect_to :login
+        return false
+      end
+    end
 end
