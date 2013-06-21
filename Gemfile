@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc2'
 
-gem 'sqlite3'
-gem 'pg'
 gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -30,6 +30,11 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem 'debugger'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :test do
