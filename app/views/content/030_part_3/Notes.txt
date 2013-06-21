@@ -1,0 +1,25 @@
+Morning
+
+Sign up for Google Play
+
+Demo Relative Layout - calculator
+Demo Locales
+
+Have them build a relative layout
+
+Demo Resources
+Have them do a resources exercise where they create a layout for different screen sizes
+
+Demo Audio
+
+MediaPlayer
+Soundpool
+
+
+Afternoon
+
+Demo a soundboard
+
+* Have them create their interface, a grid of 3*4 tiles
+* Create an alternative landscape interface
+

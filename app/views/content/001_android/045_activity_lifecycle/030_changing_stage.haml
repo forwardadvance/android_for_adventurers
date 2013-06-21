@@ -1,0 +1,39 @@
+%h1 Changing Stages
+
+%p The activity lifecycle is like a ladder. Your activity will move up and down the ladder as you use your app. Here are the things that can happen to make it change stage.
+
+%p
+  %b Assume the activity is active in the resumed state (it's running and in the foreground).
+
+:markdown
+
+  ## If the user launches another activity from the first activity
+
+  * onPause is called.
+  * Right after this, onStop is called.
+  * Your activity is now stopped but it still exists
+
+  ## If the user exits your activity by pressing the home button
+
+  * onPause is called
+  * Right away onStop is called
+  * Your activity is now stopped but it still exists. If the user restarts the app, you'll go back to where you left off.
+
+  ## If the user exits your activity by pressing the back button
+
+  * onPause is called
+  * Right away onStop is called
+  * Immediately after onDestroy is called
+  * Your activity is destroyed and can no longer run
+
+  ## If the user rotates the screen
+
+  The activity is destroyed and recreated. This lets you load a new UI.
+
+  * The state of any forms is automatically saved
+  * onPause, onStop and onDestroy are called
+  * onCreate, onStart and onResume are called
+
+  ## If the activity is stopped, and the device runs low on memory
+
+  * onDestroy is called. Memory is freed up. Android will try to only kill tasks that haven't been used in a long time.

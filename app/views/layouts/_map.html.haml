@@ -1,0 +1,13 @@
+%nav.map
+  -@sections.each do |section|
+
+    %section{ class: (section.slug + ((section == @section) ? " current" : " folded" )) }
+      %h2
+        -if section == @section
+          =section.title
+        -else
+          =link_to section.title, exercise_path(section.slug, section.first_exercise.slug)
+      %ul
+        -section.exercises.each do |exercise|
+          %li{ :class => exercise.slug }
+            =link_to exercise.title, exercise_path(exercise.section.slug, exercise.slug)

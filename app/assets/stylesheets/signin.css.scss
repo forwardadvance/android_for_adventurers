@@ -1,0 +1,9 @@
+@import 'includes';
+.logins {
+  .container {
+    @include col(6);
+    margin:0 auto;
+  }
+  form {
+  }
+}

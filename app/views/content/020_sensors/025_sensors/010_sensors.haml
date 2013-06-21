@@ -1,0 +1,77 @@
+%h1 Sensors
+
+:markdown
+  Your android device has access to an array of sensors. It can tell where it is, what angle it is at, how fast it is moving, what the ambient temperature is, how bright things are, etc, etc.
+
+
+  We access a sensor using a SensorListener.
+
+  We create a SensorListener by implementing the SensorListener interface. The simplest way to do this is to have our activity itself listen for the sensor events:
+
+
+      package ly.trivial.SensorDemo;
+
+      import ly.trivial.RaveSticks.R;
+      import android.app.Activity;
+      import android.hardware.Sensor;
+      import android.hardware.SensorEvent;
+      import android.hardware.SensorEventListener;
+      import android.hardware.SensorManager;
+      import android.os.Bundle;
+      import android.util.Log;
+      import android.widget.TextView;
+
+      public class SensorActivity extends Activity implements SensorEventListener {
+
+      SensorManager sensorManager;
+      private Sensor accelerometer;
+
+        Thread updaterThread;
+        private String TAG = "SticksActivity";
+
+        /** Called when the activity is first created. */
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+          accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+          setContentView(R.layout.main);
+        }
+
+        @Override
+        protected void onResume() {
+          super.onResume();
+          Log.d(TAG, "resuming");
+          sensorManager.registerListener(this, accelerometer, Sensor.TYPE_ACCELEROMETER);
+        }
+
+        @Override
+        protected void onPause() {
+          super.onPause();
+          sensorManager.unregisterListener(this);
+          Log.d(TAG, "pausing");
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+          float x = event.values[0];
+          float y = event.values[1];
+          float z = event.values[2];
+          TextView one = (TextView) findViewById(R.id.output_1);
+          one.setText("x: " + x);
+          TextView two = (TextView) findViewById(R.id.output_2);
+          two.setText("y: " + y);
+          TextView three = (TextView) findViewById(R.id.output_3);
+          three.setText("z: " + z);
+        }
+
+      }
+
+  Grab the demo code from here:
+
+  <http://www.androidadventurers.com/downloads/SensorDemo.zip>

@@ -1,0 +1,33 @@
+
+%h1 Create your own SMS sender:
+
+:markdown
+
+  Modify the Messager app from the previous example. The example shown sends a message from one activity to the next. We're going to extend it so that it has a nicer UI and will send the message you type in as an SMS.
+
+  You can send a text message using an SmsManager object.
+
+:ruby
+  code = <<-CODE
+    SmsManager smsManager = SmsManager.getDefault();
+    smsManager.sendTextMessage("0123456789", null, "sms message content", null, null);
+  CODE
+
+=format_code(code)
+
+%h2 Exercise - Create an SMS messaging system
+
+:markdown
+
+  You challenge is to create a simple app which will send text messages.
+
+  You'll need to add a field which lets the user enter a phone number, and possibly change the text entry field into a text area.
+
+  You should be able to enter a phone number and message and send it.
+
+%h2 Bonus Points
+
+:markdown
+  1. Create your UI using a Relative Layout.
+  2. Create a French version of your app.
+  3. Create a separate landscape and portrait version of your app.

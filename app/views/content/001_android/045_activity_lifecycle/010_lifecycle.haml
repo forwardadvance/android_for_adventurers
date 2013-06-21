@@ -1,0 +1,39 @@
+%h1 Activity Lifecycles
+
+:markdown
+
+  Just like a beautiful butterfly, Activities have don't come into the world fully formed, they have to go through several stages.
+
+  We call these stages the activity lifecycle.
+
+  When an activity is first fired up it goes through the following states:
+
+  1. Created
+  2. Started
+  3. Resumed
+
+  When it is destroyed again, it climbs back down the ladder, passing through the following states:
+
+  1. Paused
+  2. Stopped
+  3. Destroyed
+
+  It will always pass through all of these states as it, except in extreme circumstances, for example if the device crashes.
+
+  At each stage it triggers a callback. The names of the callbacks are:
+
+  1. onCreate()
+  2. onStart()
+  3. onResume()
+  4. onPause()
+  5. onStop()
+  6. onDestroy()
+
+  ## Think of it like a stepladder
+
+  * When the Activity wakes up, it climbs quickly to the top of the ladder.
+  * Later it might climb down, sometimes a little, sometimes all the way.
+  * You can't skip over a step, you have to go through each stage in order.
+
+%img{ :src => "/img/part_2/activity_lifecycle.png", :alt => "it's like a step ladder."}
+

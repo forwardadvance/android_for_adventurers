@@ -1,0 +1,15 @@
+
+%article.container
+  = render :partial => "content/#{@course.path}/#{@section.path}/#{@exercise.partial}"
+
+  -[:up, :up_right, :right, :down_right, :down, :down_left, :left, :up_left].each do |direction|
+    -exercise = @exercise.send("#{direction}_exercise")
+    -exercise = @exercise.send("#{direction}_exercise")
+    -if exercise
+      %nav{ :class => "next #{direction}" }
+        =link_to(exercise_path(exercise.section.slug, exercise.slug)) do
+          =@exercise.send("#{direction}_description")
+          %i{ :class => "icon-circle-arrow-down" }
+
+
+=render :partial => "layouts/map"

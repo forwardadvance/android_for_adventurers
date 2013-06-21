@@ -1,0 +1,5 @@
+Todo
+
+Add in code which sets volume of correct stream
+Network activity crashed when targeting > 8 because network events are not allowed on the main stream
+Async task exercises are no good, temporarily borrowed from Vogella for sake of getting course done. Redo. Urgently.

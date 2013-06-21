@@ -1,0 +1,53 @@
+@import "includes";
+$width: 200px;
+$padding: 0.5em;
+$icon_size:3em;
+.exercises {
+  article.container {
+    float:right;
+    @include col(9);
+    margin-bottom:200px;
+    nav.next {
+      @include transition;
+      width:$width;
+      background:#888;
+      padding:0.5em;
+      position:relative;
+      font-weight: 700;
+      box-shadow:1px 1px #444, -1px -1px #bbb;
+      border-radius:5px;
+    }
+    nav.next {
+      a {
+        display:block;
+        @include sans;
+        color:#fff;
+        text-decoration:none;
+        padding-right:$icon_size;
+        text-shadow:-1px -1px #444, 1px 1px #bbb;
+      }
+      i {
+        font-size:2em;
+        position:absolute;
+        right:$padding;
+        bottom:$padding;
+      }
+    }
+    nav.next:hover {
+      opacity:1;
+    }
+    nav.down {
+      position:fixed;
+      bottom:1em;
+      opacity:0.5;
+      left:50%;
+      margin-left: -$width/2;
+    }
+  }
+
+  nav.map {
+    float:left;
+    @include col(4);
+    margin-left:$gutter
+  }
+}

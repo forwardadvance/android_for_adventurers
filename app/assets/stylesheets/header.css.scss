@@ -1,0 +1,31 @@
+@import "includes";
+
+header {
+  background:darken($blue,15%);
+  z-index:10;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  display:block;
+  padding:$padding / 2 $padding;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2), inset 0 10px 20px -10px darken($blue, 20%);
+  a.logo {
+    @include sans;
+    font-weight:600;
+    float:left;
+    margin-top:2px;
+    color: darken($blue, 30%);
+    text-shadow: 0px 1px lighten($blue, 5%), 0px -1px darken($blue, 50%);
+    text-decoration:none;
+    font-size:$font_size * 1.5;
+    @include transition
+  }
+  a.logo:hover {
+    color: white;
+    text-shadow: 0px -1px lighten($blue, 5%), 0px 1px darken($blue, 50%);
+  }
+  .button_block {
+    float:right
+  }
+}

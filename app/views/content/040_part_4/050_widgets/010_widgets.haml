@@ -1,0 +1,75 @@
+// TODO: This is too much for one day. Move to day 5.
+// TODO: Run through this tutorial: http://nexsoftware.net/wp/2009/07/29/tutorial-creating-a-custom-analogclock-widget/
+// TODO: Learn how to update the widget view when it's clicked
+// TODO: Learn how to start and stop the service using a broadcast receiver.
+
+%h1 Creating Widgets
+
+:markdown
+
+  To make a widget you need three things.
+
+%h2 A receiver entry in the manifest:
+
+
+:ruby
+  code = <<-CODE
+    <receiver android:name="TestWidget" >
+        <intent-filter>
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+        </intent-filter>
+
+        <meta-data
+            android:name="android.appwidget.provider"
+            android:resource="@xml/test_widget" />
+    </receiver>
+  CODE
+
+=format_code(code)
+
+%p This does three things:
+
+:markdown
+
+  1. It declares the class which will receive widget events, in this case TestWidget
+  2. It declares that the widget will respond to the APPWIDGET_UPDATE event
+  3. It declares that a file exists called test_widget.xml in which the widget is defined.
+
+%h2 A Widget Info XML file:
+
+%p This is an xml resource file that describes the widget's properties, its class and layout file:
+
+:ruby
+  code = <<-CODE
+    <?xml version="1.0" encoding="utf-8"?>
+    <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+        android:initialLayout="@layout/test_widget"
+        android:minHeight="100dp"
+        android:minWidth="320dp"
+        android:updatePeriodMillis="0" >
+
+    </appwidget-provider>
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  This does several things:
+
+  1. It declares which layout file to use.
+  2. It declares the width and height of the widget.
+  3. It defines an Update Period, in this case every half an hour.
+
+  ## A Layout File
+
+  Your widget will need a layout file. In this case it's called test_widget.xml.
+
+  ## A class to handle updates.
+
+  You'll need to create a class that extends AppWidgetProvider. This will have an onUpdate method which is where you set up your widget.
+
+
+
+
+

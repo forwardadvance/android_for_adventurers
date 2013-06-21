@@ -1,0 +1,51 @@
+%h1 SAX Appeal
+
+:markdown
+
+  Sax is a lightweight event driven XML parser. It's good for mobile usage because it reads the file one element at a time, so is light on memory.
+
+  Here's how it works:
+
+  ## Create a Class
+
+  First you write a class that extends rg.xml.sax.helpers.DefaultHandler, like this:
+
+
+:ruby
+  code = <<-CODE
+    package ly.trivial.SaxDemo;
+    import org.xml.sax.helpers.DefaultHandler;
+    public class SaxHandler extends DefaultHandler {}
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  ## Override some methods
+
+  Specifically:
+
+  * startDocument
+  * endDocument
+  * startElement
+  * endElement
+  * characters
+
+  ## Parse
+
+  Now your parse your document. As the document is parsed, the methods you implemented above will be called. So if the parse hits a cats_name element for example, it will call startElement and pass it "cats_name"
+
+  The parser will loop over the XML feed tag by tag, calling the callback methods as it goes.
+
+  ## Extract data
+
+  If you want to get the content of the cats_name element, you're going to need to declare a boolean. When the parser calls startElement, set the boolean true. When the parse calls characters, check it the boolean is true, and if it is you have found your cat's name. When it calls endElement, set the boolean to be false.
+
+  ## More SAX please
+
+  For more on SAX, do check out the following link
+
+  <http://www.saxproject.org/quickstart.html>
+
+  before moving on to a practical example...

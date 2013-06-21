@@ -1,0 +1,38 @@
+%h1 External Storage
+
+:markdown
+  We can also write to external storage, generally an SD card. Before doing so we should check it is available. We can do so like this:
+
+:ruby
+  code = <<-CODE
+    Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  ## Where to Save Files
+
+  If we want to be a good neighbour we should write to a specific directory on the external file system. We can get a file object representing this directory using:
+
+:ruby
+  code = <<-CODE
+    getExternalFilesDir(null);
+  CODE
+
+=format_code(code)
+
+This will prompt android to create a directory for our app's files. It won't be private, but other apps won't overwrite it in the general course of things.
+
+You'll need to set a permission:
+
+:ruby
+  code = <<-CODE
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+  CODE
+
+=format_code(code)
+
+:markdown
+  This directory will be deleted if our app is uninstalled.

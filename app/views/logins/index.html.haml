@@ -1,0 +1,21 @@
+%h1 Listing logins
+
+%table
+  %tr
+    %th Person
+    %th Login key
+    %th
+    %th
+    %th
+
+  - @logins.each do |login|
+    %tr
+      %td= login.person_id
+      %td= login.login_key
+      %td= link_to 'Show', login
+      %td= link_to 'Edit', edit_login_path(login)
+      %td= link_to 'Destroy', login, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Login', new_login_path

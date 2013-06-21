@@ -1,0 +1,39 @@
+%h1 How Services Work
+
+A service is simply a class that extends Service. The simplest way to make one is in the manifest. Click the Application tab, then "Add" and "Service".
+
+%h2
+
+%p A service is not a thread, it won't execute in the background all by itself. However, it may create and own a thread if necessary. It may create an event listener and listen out for callbacks.
+
+%h2 Starting and Stopping
+
+%p We start and stop services in the same way we start activities, using an intent.
+
+%p We can start a service like so:
+
+:ruby
+  code = <<-CODE
+    startService(new Intent(this, MyService.class));
+  CODE
+
+=format_code(code)
+
+%p Likewise, we stop a service like so: (Can you guess?)
+
+:ruby
+  code = <<-CODE
+    stopService(new Intent(this, MyService.class));
+  CODE
+
+=format_code(code)
+
+%p Once we create a service it will continue to exist until we either stop it, or it calls stopSelf.
+
+
+:ruby
+  code = <<-CODE
+    stopSelf()
+  CODE
+
+=format_code(code)

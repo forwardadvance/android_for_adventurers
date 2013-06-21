@@ -1,0 +1,36 @@
+%h1 Making HTTP Requests
+
+The simplest way to make a network request uses the Apache DefaultHttpClient class. Making a request is almost trivially simple:
+
+
+
+:ruby
+  code = <<-CODE
+    HttpClient client = new DefaultHttpClient();
+    HttpResponse response = client.execute(new HttpGet("http://www.androidadventurers.com"));
+  CODE
+
+=format_code(code)
+
+We can use a buffered reader to get the content out of the response. Wrap the whole thing in a try/catch block (to catch naughty exceptions) and we get:
+
+
+:ruby
+  code = <<-CODE
+
+    try {
+      HttpClient client = new DefaultHttpClient();
+      HttpResponse response = client.execute(new HttpGet(url));
+
+      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response
+          .getEntity().getContent()));
+      String line = "";
+      while ((line = bufferedReader.readLine()) != null) {
+        output.append(line + "\n");
+      }
+    } catch (Exception e) {
+      Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+    }
+  CODE
+
+=format_code(code)

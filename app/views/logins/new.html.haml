@@ -1,0 +1,24 @@
+%article.container
+
+  %h1
+    Sign In
+
+  %section.login
+    =render :partial => "layouts/error"
+
+    = form_tag login_path, :method => "post" do
+      %p.form-row
+        %label{:for => "email"} email:
+        %input#email{:type => "email", :value => @email, :name => "email", :autofocus => true, :required => true}
+      %p.form-row
+        %label{:for => "password"} password:
+        %input{:type => "password", :value => params[:password], :name => "password", :required => true}
+
+      %p.form-row
+        %button Sign in
+
+
+  .clear
+
+  - content_for :stylesheets do
+    = stylesheet_link_tag 'login'

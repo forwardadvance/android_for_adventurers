@@ -1,0 +1,99 @@
+%h1 Using the SoundPool API
+
+:markdown
+
+  ## Make a project
+
+  Right let's get started. You'll need a new project, so go ahead and make one. Mine is called SoundpoolExercise.
+
+  ## Grab your resources
+
+  First let's get our resources. Create a folder called raw in the res folder. This will hold you raw sound resources. Download baby.mp3 and deer.png (or grab your own resources)
+
+  * <http://www.androidadventurers.com/downloads/baby.mp3>
+
+  * <http://www.androidadventurers.com/downloads/deer.jpg>
+
+  baby.mp3 goes in res/raw
+
+  deer.mp3 goes in res/drawable-mdpi
+
+  ## Create your UI
+
+  Drag an image view into main.xml. You'll be asked to choose a resource. Choose deer. Wow, your deer is right there. We now have our UI
+
+  ## Load the sound
+
+:ruby
+  code = <<-CODE
+    package ly.trivial.SoundpoolExercise;
+
+    public class SoundpoolExerciseActivity extends Activity {
+
+      private SoundPool soundPool;
+      private int babySoundID;
+      boolean loaded = false;
+
+      @Override
+      public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        soundPool.setOnLoadCompleteListener(new OnLoadCompleteListener() {
+          @Override
+          public void onLoadComplete(SoundPool soundPool, int sampleId,
+              int status) {
+            loaded = true;
+          }
+        });
+        babySoundID = soundPool.load(this, R.raw.baby, 1);
+      }
+    }
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  ## Sort out your imports
+
+  Your imports will be messed up. Use Source > Organise Imports to fix them.
+
+  ## Set an onClick Handler
+
+  Now in your main.xml file add an onClick property to the deer image. I called mine onDeerClicked
+
+  ## Write the onDeerClicked method
+
+  Now we need a method to actually play the sound. Add the onDeerClicked method to the SoundpoolExerciseActivity class:
+
+:ruby
+  code = <<-CODE
+    public void onDeerClicked(View v) {
+      AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+      float actualVolume = (float) audioManager
+          .getStreamVolume(AudioManager.STREAM_MUSIC);
+      float maxVolume = (float) audioManager
+          .getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+      float volume = actualVolume / maxVolume;
+      // Is the sound loaded already?
+      if (loaded) {
+        // soundPool.play(int soundID, float leftVolume, float rightVolume,
+        // int priority, int loop, float rate)
+        soundPool.play(babySoundID, volume, volume, 1, 0, 1f);
+      }
+    }
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  ## Now Try It Out
+
+  Launch the soundpool exercise in a simulator, or on a device. Tap the deer. Pretty cool!
+
+  ## Extension
+
+  1. Add a second image. You'll need to use the weight property to make it fit under the first image.
+  2. Add a click handler and a second sound effect. Make it play something different.

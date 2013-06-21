@@ -1,0 +1,77 @@
+%h1 Using the Media Player API
+
+:markdown
+
+  MediaPlayer is the big daddy of Android Media APIs. It's large and heavy, and there's often latency as it fires up. It's very powerful. You can play audio tracks
+
+  ## Grab an asset.
+
+  First, let's download an audio file. You can download free public domain audio files from here:
+
+  <http://freepd.com>
+
+  Once you have it, create a folder called raw in the res folder. Make sure you get it in the right project. Endure your filename is all LOWER CASE, and contains no s p a c e s. Drag the audio file in to the raw folder.
+
+  When you build your project you will notice that the R class has handily created an id for your file.
+
+  ## Now to play your file you simply call:
+
+
+:ruby
+  code = <<-CODE
+    MediaPlayer player = MediaPlayer.create(this, R.raw.your_id);
+    player.start();
+  CODE
+
+=format_code(code)
+
+:markdown
+  To pause it again, you simply call, can you guess?
+
+
+:ruby
+  code = <<-CODE
+    player.pause();
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  Here's an example of a complete player:
+
+:ruby
+  code = <<-CODE
+    public class MediaPlayerExerciseActivity extends Activity {
+      MediaPlayer player;
+
+      /** Called when the activity is first created. */
+      @Override
+      public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        player = MediaPlayer.create(this, R.raw.sonata);
+        player.setLooping(false);
+      }
+
+      public void play(View v) {
+        player.start();
+      }
+
+      public void pause(View v) {
+        player.pause();
+      }
+
+      public void onPause() {
+        player.stop();
+      }
+    }
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  There's a lot more to MediaPlayer than this, and if you're interested I'd suggest you have a look at the docs here:
+
+  <http://developer.android.com/reference/android/media/MediaPlayer.html>

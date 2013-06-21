@@ -1,0 +1,30 @@
+%h1 A Location Logger for Spies
+
+:markdown
+  Righty ho, let's do something with out new found knowledge of services and data storage. We're going to implement a location logger system, for spies (or joggers) When the application starts it should start a service. This service will implement LocationListener and will register itself to receive location updates by calling:
+
+
+:ruby
+  code = <<-CODE
+    requestLocationUpdates(this);
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  It will then start writing location updates to a textfile. You should make an activity which allows the user to view the contents of the file, probably in a ScrollView.
+
+  To append to a textfile, use MODE_APPEND, something like the following:
+
+:ruby
+  code = <<-CODE
+    FileOutputStream stream = openFileOutput(filename, MODE_APPEND);
+  CODE
+
+=format_code(code)
+
+:markdown
+  More on location services here:
+
+  <http://developer.android.com/guide/topics/location/strategies.html>

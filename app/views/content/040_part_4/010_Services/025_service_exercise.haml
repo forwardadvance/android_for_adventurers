@@ -1,0 +1,35 @@
+%h1 Service Exercises
+
+:markdown
+
+  I'm going to show you an example of a service which will play a media file. You can download the example from here and follow along. Afterwards, you'll extend the service to create a proper media player.
+
+  Download the ServiceDemo code from here:
+
+  <http://www.androidadventurers.com/downloads/ServiceDemo.zip>
+
+/TODO: nonJavadoc comments present in demo. Take them out.
+
+:markdown
+  Get it running nicely in a simulator. Press play, now quit the app. See, the music keeps playing.
+
+
+  ## More Exercise
+
+  How would you make the service end when the activity ends, so when the user quits the activity, the service is killed?
+
+  ## Even More Exercise
+
+  The onCompletionListener interface allows us to listen out for the end of MediaPlayer playback. Have your service implement this interface. Now when the song ends, have the service kill itself off nicely by calling stopSelf();
+
+  Note, the mp3 file is quite long, you might want to use a different file for testing.
+
+:markdown
+
+  Here are the docs:
+
+  <http://developer.android.com/reference/android/media/MediaPlayer.OnCompletionListener.html>
+
+  ## Even Even More Exercise
+
+  When the onCompletionListener fires, have the MediaPlayer object play the next audio file in an array. We'll see how to improve on this when we look at filing.

@@ -1,0 +1,22 @@
+%h1 Local Storage
+
+:markdown
+
+  We can write to local storage quite easily using something like the following:
+
+:ruby
+  code = <<-CODE
+    FileOutputStream stream = openFileOutput(filename, Context.MODE_PRIVATE);
+    stream.write(fileContent.getBytes());
+    stream.close();
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  Download the Filing Demo and get it installed. Have a look at the code. We'll do more with this in a bit.
+
+  <http://www.androidadventurers.com/downloads/FileDemo.zip>
+
+/ TODO: Format File Demo Code

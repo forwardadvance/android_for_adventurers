@@ -1,0 +1,34 @@
+%h1 Resources
+
+:markdown
+  IOS developers have it easy. They have four screen sizes to support, two of which are exact multiples of each other.
+
+  Not so Android. From the teeny little James Bond sized Sony Ericksson Xperia Mini to the massive 13 inch Toshiba Excite, Android developers have a whole lot more work to do (and a whole lot more fun to be had!)
+
+  We also have issues of internationalisation. No adventurer wants to be confined to a single country, and your apps shouldn't be confined either.
+
+  To solve all these problems, Google has given us resources.
+
+  ## String Resources
+
+  Every piece of text in our app can (and really should) be extracted into a file called strings.xml. This lets us internationalise our app really easily, and makes it more maintainable across different layout files. A simple set of naming conventions allows the device to choose which set of strings to use based on the locale.
+
+  ## Drawable Resources - Images
+
+  The drawable folder contains images, usually in the form of PNGs. Again, naming conventions are used to separate hi resolution images for tablets from small low resolution ones for low end smart phones.
+
+  ## Raw Resources
+
+  We can chuck raw data in the raw folder if we need to hold things like mp3s.
+
+  ## XML Layout Resources
+
+  XML resources can be used to describe layouts. A set of standard naming conventions allows different layouts to be used at different orientations and screen sizes.
+
+  ## Other XML resources
+
+  XML resources can also be used to describe other components like widgets. We'll see more on this later.
+
+  ## Assets
+
+  We should also give a mention to assets. Assets live in the assets folder (big surprise?) Assets are files of any type that are not organised by Android. If you don't want to use the Android Resources system, you can pop anything you like in the assets folder.

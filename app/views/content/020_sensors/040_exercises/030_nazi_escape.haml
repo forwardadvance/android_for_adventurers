@@ -1,0 +1,43 @@
+%h1 Nazi Escape Exercise
+
+:markdown
+
+  You're still on the beach with Nazi's approaching from all sides. Oh No! You're going to have to dodge them!
+
+  In this section we're going to tear down Signal Sticks and remake it as Nazi Dodgems (OK, you don't have to call it that).
+
+  ## 1. Get a Tilt Sensor
+%p
+  We can use the accelerometer controls from before as defined in the Motion class. Initialise your sensor using Sensor.TYPE_ACCELEROMETER, rather than Sensor.TYPE_LINEAR_ACCELERATION to get the tilt.
+
+:markdown
+  ## 2. Create your game variables
+
+  Create integer variables to hold the player x and y position, and two more to hold the position of a Nazi. These will need to be class variables (so declare them at the top of the class).
+
+  ## 3. Update your game variables on run
+
+  The Run method is where the work happens starts. In it, update your game variables and call redraw on your surfaceView, passing in the game variables. You can optionally check for collisions here too.
+
+  ## 4. Update your surface view
+
+  The SurfaceView class is where the fun happens. Modify the Update method so that it can receive your game variables and redraw the screen. Represent the player and the Nazi as rectangles.
+
+  ## Optional Extras
+
+  If you're great (and I know you are), you can attempt one or more of the following extras
+
+  1. Multiple Nazis (oh help). Store your Nazi positions in an array.
+  2. High score - survival time
+  3. A high score activity which shows your high score
+  4. Escalating Nazi Aggression. More Nazis appear over time, a bit like asteroids, only they don't split into parts.
+
+  ## Marking your work
+
+-if @webview
+  :markdown
+    I want to mark your work. When you've finished your game, zip it up and email it over to me at (nic@trivial.ly)[mailto:nic@trivial.ly?subject="Mark my awesome nazi game please"]. Don't worry, I'm not going to steal it or anything. I'll mark it and send it back to you.
+
+-else
+  :markdown
+    I want to mark your work. When you're done, give me a shout and we'll go over it together.

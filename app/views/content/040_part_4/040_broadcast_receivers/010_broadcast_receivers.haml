@@ -1,0 +1,16 @@
+%h1 Broadcast Receivers
+
+:markdown
+
+  Broadcast receivers are short lived application components that may respond to arbitrary intents. Broadcast receivers should override the onReceive method, like so:
+
+      @Override
+      public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+      }
+
+  ## Uses of Broadcast Receivers
+
+  1. Responding to a system event, eg a low battery.
+  2. Widgets - The AppWidgetProvider class, which controls a homescreen widget, is actually a subclass of BroadcastReceiver. An Intent triggered by a tap on the widget may be captured.
+

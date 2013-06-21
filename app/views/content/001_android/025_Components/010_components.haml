@@ -1,0 +1,23 @@
+%h1 Apps Are Made Of Just Four Types of Thing
+
+:markdown
+
+  Before we start, we need to know a little about Android Architecture. All Android apps are made out of four types of thing, we call them components.
+
+  ##Activities
+
+  The first of these is Activities. Activities are views, they are pages within our application. Each one has a UI. Commonly they fill the whole screen, but sometimes an activity can sit in a popup.
+
+  Lets say we want to make an application that lets people guess the number of cats in a box. We might have one screen with a box on it, and a field to type a number. That would be an activity, it would be the "guess the cats" activity. Then we have another screen where we reveal how many cats there are. That might be another activity, the reveal activity. We might also have a high score chart listing the people who's boxes contained the most cats. That might be another activity.
+
+  Each activity has a single page UI. As we move through the application, we move from one activity to the next. Every application will contain at least one activity.
+
+  ##Services
+
+  The second of these is Services. A service is a background job. It runs for as long as the application is running, even if the user is doing something else. To follow our cats in a box app, we might have an activity which occasionally lets out a meow at random points during the day. The user could then use the frequency of these meows to gauge how many cats might be in their box. Very nice.
+
+  ##Content Providers and Broadcast Receivers
+
+  These last two are a little more advanced, and we'll cover them properly later. Content providers provide data that can be accessed by the application, or by other applications. For example we could access the user's address book by querying the address book content provider. If we stored our cats in a database, we might want to access them using a content provider.
+
+  Broadcast receivers receive information from the system. For example, if the battery is low, and the device is about to power down, we can listen out for this using a broadcast receiver, and make sure that the cats are all safe.

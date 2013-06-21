@@ -1,0 +1,86 @@
+%h1 Right, let's get to it!
+
+:markdown
+
+  I'm assuming you've already decided what type of soundboard you'd like to make.
+
+  ## Make a project
+
+  You're going to need a project, so make one.
+
+  ## Gather some images
+
+  You're going to want some buttons. Grab a set of 12 png or jpg graphics that express the sounds you'd like to make. They don't need to be fancy.
+
+  You can download free images from places like:
+
+  * <http://openclipart.org>
+  * <http://www.public-domain-image.com>
+
+  You can also draw your own pictures using Photoshop, The Gimp, or Microsoft Paint.
+
+  ## Make your sounds
+
+  Create some sound effects. The easiest way to do that is with a microphone, or you can download some from the interweb.
+
+  You can download free to use sound effects from places like:
+
+  * <http://www.freesfx.co.uk> - login and attribution required
+  * <http://soundbible.com/> - attribution usually required
+
+  For sound effects requiring attribution, you can put this on your product description page when you upload to Google Play.
+
+  ## Recording Sounds
+
+  Alternatively You can record sounds easily with a microphone and a piece of software such as Audacity:
+
+  * <http://audacity.sourceforge.net/>
+
+  OK, you're all set...
+
+  ## Make your UI
+
+  Your UI will be a tiled grid of images (3 by 4). You can use a nested linear layout, or a relative layout here.You'll need to set weights in order to make the layout stretch to fill the screen.
+
+  You'll need to create 2 UIs, for landscape and portrait.
+
+  ## Hook up your first image
+
+  You'll want to hook up the images. Because this is a static UI, you can do this by setting the onClick property right in the properties panel on your layout view. Only hook up one button for now. Make it play a sound using soundpool. Wow!
+
+  Just to remind you, here's an example of a click handler:
+
+:ruby
+  code = <<-CODE
+    public void onClick(View view) {
+      // Do your stuff in here...
+    }
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  ## Now hook up the other buttons.
+
+  You can do this by creating a separate method for each button, or you can use the same function and detect in that function which button was clicked.
+
+  Here's an example of a click handler with a switch statement:
+
+
+:ruby
+  code = <<-CODE
+
+    public void onClick(View view) {
+      switch(view.getId()){
+        case R.id.button1:
+          // Handle button one in here...
+          break;
+        case R.id.button2:
+          // Handle button one in here...
+          break;
+      }
+    }
+  CODE
+
+=format_code(code)

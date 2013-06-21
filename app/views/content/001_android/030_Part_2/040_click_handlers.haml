@@ -1,0 +1,26 @@
+%h1 Making the Buttons Work
+
+:markdown
+  Hooking the buttons up to an XML layout is remarkably easy. In this exercise we'll make a button click write to the logs. Later we'll actually make them go somewhere.
+
+%ol
+  %li Select your torch button.
+  %li In the properties panel, edit the "on click" property.
+  %li Change it's value to "activateTorch"
+  %li Now we just need to write an activateTorch method in our AdventureChooser.java file
+  %li
+    Add the following method:
+
+    :ruby
+      code = <<-CODE
+        public void activateTorch(View v) {
+            Log.v("AdventureChooser", "turning on torch");
+        }
+      CODE
+
+    =format_code(code)
+  %li Eclipse will complain about missing imports. Press ctrl shift O (apple shift O for mac users) to sort out the imports. Do this often.
+  %li Now open the LogCat view. In Eclipse, click Window > Show View > Other > LogCat. This will show our log output.
+  %li Fire up the simulator and click your button, you will see output in the LogCat view.
+
+%p In your own time, go ahead and hook up the other button.

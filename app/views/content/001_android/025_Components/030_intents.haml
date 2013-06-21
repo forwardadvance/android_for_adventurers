@@ -1,0 +1,19 @@
+%h1 Intents
+
+:markdown
+
+  ## The Activity stack
+
+  When we move to a new activity, the old one is put on hold onto popped onto a stack, like a pile of dirty dishes. The new one then takes over, it comes to the foreground. If the user presses the back button, the current activity is shut down, and the one underneath it on the stack is pulled back out. The user can go deeper into your app by opening Activities, then come back out by clicking the back button. This is why, unlike Apple devices, Android phones have a hard back button. The concept of "back" is baked right in.
+
+  ## Intents
+
+  Activities are decoupled from each other. This means that each activity is essentially a stand alone application. When one activity wants to start another one, it creates an Intent object. Intent objects define the passing of control from one activity to another.
+
+  ## Intents can start services too
+
+  You can also use intents to start services. We'll see more on this in the section on services.
+
+  ## Activities from Other Apps
+
+  You are not limited to starting your own activities. You can start activities from other apps too. For example, if you want to capture a photograph, you can start an activity from the phone's camera app. The user will be able to take the photo, and then the image will be returned to your app where you can do what you like with it.

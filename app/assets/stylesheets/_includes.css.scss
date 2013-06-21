@@ -1,0 +1,32 @@
+$dark_grey: #111;
+$mid_grey: #888;
+$light_grey: #eee;
+$blue: #485E87;
+
+$padding: 20px;
+$page_width: 960px;
+$gutter: $padding / 2;
+$num_cols: 12;
+$col_width: ($page_width - ($padding * 2)) / $num_cols;
+$font_size:18px;
+$relative_size:1.75;
+$line_height: 1.5em;
+
+@mixin sans {
+  font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+}
+
+@mixin serif {
+  font-family: "Crimson Text", serif;
+}
+
+@mixin transition {
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@mixin col($a) {
+  width: ($col_width * $a) + ($gutter * ($a - 1));
+  margin-left: $gutter;
+  margin-right: $gutter;
+}

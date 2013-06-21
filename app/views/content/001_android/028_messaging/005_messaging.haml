@@ -1,0 +1,19 @@
+%h1 Sending a message from one activity to another
+
+:markdown
+  You can send a message from one activity to another in your intent using putExtra.
+
+      intent.putExtra(key, message);
+      startActivity(intent);
+
+  You can then pick these messages up again using a selection of methods. If the extra data was a string for example, you can use:
+
+      String message = intent.getStringExtra(key);
+
+  The key is a string that identifies the data you want to get from the intent.
+
+  Download the Messager app from here and have a play:
+
+  <http://www.androidadventurers.com/downloads/Messager.zip>
+
+  Now lets move onto the

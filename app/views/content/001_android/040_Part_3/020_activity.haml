@@ -1,0 +1,170 @@
+
+%h1 Crafting a torch
+
+:markdown
+
+  In order to navigate, we need a new Activity to navigate to. When we crash in the jungle, I expect we'll really need a torch, so lets make that first.
+
+  A good explorer is always prepared...
+
+
+%section.walkthrough
+
+  %figure
+    %img{ :src => "/img/intent/1.png" }
+    %figcaption
+      %p The beating crystal heart of any application is the manifest. It's an XML file that wires everything together.
+      %p 1. Open the Android Manifest file now.
+
+  %figure
+    %img{ :src => "/img/intent/2.png" }
+    %figcaption
+      %p 2. Notice at the bottom of the Manifest UI there are tabs. Click the Application tab
+
+
+  %figure
+    %img{ :src => "/img/intent/3.png" }
+    %figcaption
+      %p 3. Click the Add button
+
+  %figure
+    %img{ :src => "/img/intent/4.png" }
+    %figcaption
+      %p 4. Now Select Activity from the popup that appears. Click finish.
+
+  %figure
+    %img{ :src => "/img/intent/5.png" }
+    %figcaption
+      %p 5. This next part is sneeky. Click the "name" label. Because the class doesn't exist yet, this will ask us to make one.
+
+  %figure
+    %img{ :src => "/img/intent/6.png" }
+    %figcaption
+      %p 6. Enter TorchActivity. This will make a new activity. Click Next
+
+  %figure
+    :ruby
+      code = <<-CODE
+        package ly.trivial.adventure;
+
+        import android.app.Activity;
+        import android.os.Bundle;
+
+        public class TorchActivity extends Activity {
+
+          /** Called when the activity is first created. */
+          @Override
+          public void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+
+              // TODO Auto-generated method stub
+          }
+
+        }
+      CODE
+    =format_code(code)
+    %figcaption
+      %p 7. The new activity will be created. Here it is. It extends Activity, and has one method onCreate. This method will be called when our activity starts.
+
+  %figure
+    %img{ :src => "/img/intent/8.png" }
+    %figcaption
+      %p 8. Now we need to give our activity a UI. In the package Explorer right click res/layout and choose New > Other.
+
+  %figure
+    %img{ :src => "/img/intent/9.png" }
+    %figcaption
+      :markdown
+        9. Create a new Android Layout File
+
+  %figure
+    %img{ :src => "/img/intent/10.png" }
+    %figcaption
+      %p 10. Call it torch_layout and choose LinearLayout as the root element.
+
+  %figure
+    %img{ :src => "/img/intent/11.png" }
+    %figcaption
+      %p 11. Drag in a TextView.
+
+  %figure
+    %img{ :src => "/img/intent/12.png" }
+    %figcaption
+      %p 12. Change the text attribute to "Torch"
+
+  %figure
+    %img{ :src => "/img/intent/13.png" }
+    %figcaption
+      %p 13. Your UI should now look like this.
+
+  %figure
+    :ruby
+      code = <<-CODE
+
+        package ly.trivial.adventure;
+
+        import android.app.Activity;
+        import android.os.Bundle;
+
+        public class TorchActivity extends Activity {
+
+          /** Called when the activity is first created. */
+          @Override
+          public void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+                setContentView(R.layout.torch_layout);
+          }
+
+        }
+      CODE
+
+    =format_code(code)
+    %figcaption
+      %p 14. Now we need to tell the TorchActivity class to use the new layout. onCreate, set the content view to torch_layout, like so.
+
+  %figure
+
+    :ruby
+      code = <<-CODE
+
+        package ly.trivial.adventure;
+
+        import android.app.Activity;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.util.Log;
+        import android.view.View;
+
+        public class ChooserActivity extends Activity {
+
+          private static final String TAG = "Chooser Activity";
+
+          /** Called when the activity is first created. */
+          @Override
+          public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.adventure_chooser);
+          }
+
+
+          public void activateTorch(View v) {
+            Log.v("AdventureChooser", "turning on torch");
+            Intent myIntent = new Intent(ChooserActivity.this, TorchActivity.class);
+            ChooserActivity.this.startActivity(myIntent);
+
+          }
+        }
+      CODE
+
+    =format_code(code)
+    %figcaption
+      %p 15. Finally, we'll create out intent. Swap back to ChooserActivity.java and in the onClick method create the intent object and use it to start the activity.
+
+
+  %figure
+    %img{ :src => "/img/intent/16.png" }
+    %figcaption
+      %p
+        16. We're now ready to preview our app. Open in the simulator, or on a device. We can click the Torch button, and the new activity fires up. When we click the back button, we go back to where we were before. Fantastic!
+
+

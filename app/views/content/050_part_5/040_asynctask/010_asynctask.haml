@@ -1,0 +1,16 @@
+%h1 AsyncTask
+
+:markdown
+
+  The AsyncTask class provides a handy wrapper around the Thread class, allowing us to run long tasks without blocking the UI.
+
+  Unlike regular threads, AsyncTasks have access to the UI via their onPostExecute method.
+
+  ## Creating an AsyncTask
+
+  We create an AsyncTask by creating a class which extends AsyncTask. In this class we should override two methods:
+
+  * doInBackground
+  * onPostExecute
+
+  then we create a new instance of the class and call execute on it.

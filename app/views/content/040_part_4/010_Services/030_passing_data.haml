@@ -1,0 +1,32 @@
+%h1 Passing Data to a Service
+
+
+%p You may have noticed that the onStart method receives an Intent object. We can use this to receive data.
+
+%p We can pass data to the service via the intent using putExtra, like so:
+
+
+:ruby
+  code = <<-CODE
+    Intent intent = new Intent(this, MyService.class);
+    intent.putExtra("my_key", "Test Value");
+    startService(intent);
+  CODE
+
+=format_code(code)
+
+%p Getting the data back out again at the onStart method is almost as easy:
+
+:ruby
+  code = <<-CODE
+    Bundle getvars = intent.getExtras();
+    String val = getvars.getString("my_key");
+  CODE
+
+=format_code(code)
+
+:markdown
+
+  ## Exercise
+
+  Pass the id of a media resource to the service and have it play.

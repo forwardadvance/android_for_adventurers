@@ -1,0 +1,12 @@
+Day 5
+
+Morning
+
+Network Activity
+Pull from an API
+SAX
+
+Afternoon
+
+ASync Task
+List View

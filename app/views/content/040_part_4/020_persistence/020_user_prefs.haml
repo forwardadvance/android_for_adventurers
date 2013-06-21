@@ -1,0 +1,59 @@
+%h1 User Preferences
+
+%p The PreferenceManager allows you to store and retrieve key value pairs. Preferences are stored in an XML file, which is saved to the app's private storage area on the phone.
+
+%p We can get a preferences object like this:
+
+:ruby
+  code = <<-CODE
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+  CODE
+
+=format_code(code)
+
+%p We can read from it very simply. We provide a key, and a default value which will be returned if no value is set.
+
+:ruby
+  code = <<-CODE
+    String cat_name = preferences.getString("cats_name", "I have no cat");
+  CODE
+
+=format_code(code)
+
+%p Writing to preferences is a little more involved, you need to get an Editor object, make the change, then commit it, like so:
+
+:ruby
+  code = <<-CODE
+    Editor edit = preferences.edit();
+    edit.putString("username", "new_value_for_user");
+    edit.commit();
+  CODE
+
+=format_code(code)
+
+We can store all sorts of different types of object using methods like:
+
+
+:ruby
+  code = <<-CODE
+    putInt(String key, int value)
+    putBoolean(String key, boolean value)
+  CODE
+
+=format_code(code)
+
+etc...
+
+:markdown
+
+  ## Exercise
+
+  Download the preferences app from here:
+
+  <http://www.androidadventurers.com/downloads/PreferencesExample.zip>
+
+  Get it running nicely on a simulator.
+
+  ## Messager App Exercise
+
+  Have a go at saving a user preference. Modify your messager app from day 3. Make the phone number and message persist. The next time you visit the app, these fields are already populated.

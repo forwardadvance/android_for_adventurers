@@ -1,0 +1,42 @@
+%h1 Activity Lifecycle Stages for the Discerning Gentleman (or Lady)
+
+:markdown
+
+  Here are the different callbacks, when they occur, and what to put in them. It's a list, bang, everything you need to know.
+
+  ## onCreate
+
+  * Happens once when the Activity is created.
+  * Use it to instantiate any variables and create the UI.
+  * Use it like a constructor.
+
+  ## onStart
+
+  * Happens right before onResume (like miliseconds before)
+  * Use it to load a saved state if you need to.
+  * You won't need this one very often
+
+  ## onResume
+
+  * This is the last stage before the activity is awake and running.
+  * Use it to activate any sensors, the camera, or anything else that might drain the battery.
+
+  ## onPause
+
+  * This is the first phase of shutdown
+  * Your activity may not go all the way to shutdown, it may just be partially obscured by a popup
+  * Use it to release any sensors or anything that might drain the battery.
+
+  ## onStop
+
+  * This is the second phase of shutdown
+  * Your activity may not go all the way to shutdown, it may be in the activity stack.
+  * Use it to save state if you need to (UI state is saved automatically).
+  * You won't need to implement this callback very often.
+
+  ## onDestroy
+
+  * Like an ancient civilisation, your activity is completely obliterated.
+  * Android will take care of most of this for you.
+  * Java will destroy any instance variables.
+  * You'll rarely need this callback.

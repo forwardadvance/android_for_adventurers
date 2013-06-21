@@ -1,0 +1,113 @@
+%h1 Let's try it out
+
+%p I'm going to show you an example. Check out the following code:
+
+
+:ruby
+  code = <<-CODE
+    package ly.trivial.LifecycleDemo;
+
+    import android.app.Activity;
+    import android.app.AlertDialog;
+    import android.content.DialogInterface;
+    import android.content.Intent;
+    import android.os.Bundle;
+    import android.util.Log;
+    import android.view.View;
+    import android.widget.Toast;
+
+    public class LifecyleDemoActivity extends Activity {
+
+      private final String TAG = "LifecyleDemoActivity";
+
+      /** Called when the activity is first created. */
+      @Override
+      public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        Log.d(TAG, "onCreate ");
+      }
+
+      @Override
+      protected void onResume() {
+        Log.d(TAG, "onResume");
+        super.onResume();
+      }
+
+
+      @Override
+      protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart");
+      }
+
+      @Override
+      protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+      }
+
+      @Override
+      protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+      }
+
+      @Override
+      protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
+      }
+
+      public void doToast(View v) {
+        Log.d(TAG, "doToast");
+        Toast toast = Toast.makeText(this, "This is a toast message", Toast.LENGTH_SHORT);
+          toast.show();
+      }
+
+      public void doAlert(View v) {
+        Log.d(TAG, "doAlert");
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create(); //Read Update
+            alertDialog.setTitle("hi");
+            alertDialog.setMessage("This is an important message");
+            alertDialog.setButton("Continue..", new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int which) {
+                  // here you can add functions
+               }
+            });
+            alertDialog.show();
+      }
+
+      public void doNewActivity(View v) {
+          Intent intent = new Intent(this, SecondActivity.class);
+          startActivity(intent);
+      }
+
+    }
+  CODE
+
+=format_code(code)
+
+:markdown
+  There are a few things going on here, but the main thing to notice is that I've overridden the six lifecycle methods:
+
+  * onCreate
+  * onStart
+  * onResume
+  * onPause
+  * onStop
+  * onDestroy
+
+  ## Exercise
+
+  Grab the code from here, and get it running on your device.
+
+  <http://www.androidadventurers.com/downloads/LifecycleDemo.zip>
+
+  Now, with logcat hooked up, try the following:
+
+  1. Open the application
+  2. With the application running, press the home button
+  3. With the application running, press the back button
+  4. With the application running, rotate the device
+  5. With the application running, click the button to do a toast, and the button to create a dialog. (Nothing will happen, this is fine)

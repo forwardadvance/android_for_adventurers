@@ -1,0 +1,47 @@
+%h1 Extra Work
+
+
+
+%h2 Add a button that links to the dialler and calls your mum.
+
+:ruby
+  code = <<-CODE
+    Uri number = Uri.parse("tel:" + numberString);
+    Intent dial = new Intent(Intent.ACTION_CALL, number);
+  CODE
+=format_code(code)
+
+%p Use the ACTION_CALL method to do this.
+
+%p You'll need to set the CALL_PHONE privilege in your manifest to do this:
+
+:ruby
+  code = <<-CODE
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+  CODE
+
+=format_code(code)
+
+%h2 Send an SMS message
+
+You can do this via an intent:
+
+:ruby
+  code = <<-CODE
+    Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+    sendIntent.putExtra("sms_body", "default content");
+    sendIntent.setType("vnd.android-dir/mms-sms");
+    startActivity(sendIntent);
+  CODE
+
+=format_code(code)
+
+You'll need the SMS permission to do this:
+
+:ruby
+  code = <<-CODE
+    <uses-permission android:name="android.permission.SEND_SMS" />
+  CODE
+
+=format_code(code)
+

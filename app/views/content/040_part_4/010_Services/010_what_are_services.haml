@@ -1,0 +1,39 @@
+%h1 Services
+
+:markdown
+
+  People are often confused about exactly what services are. They think they are threads or background jobs, or something flashy.
+
+  A service is just an application component that isn't cleaned up even when the application that started it is closed down, essentially a headless activity.
+
+  ## Callbacks
+
+  Services implement callbacks:
+
+  * onCreate
+  * onStartCommand
+  * onDestroy
+
+/ TODO onStart is now deprecated. We now use onStartCommand. Update this.
+
+:markdown
+
+  ## onCreate
+
+  This is your constructor. Instantiate any variables here.
+
+  ## onStart
+
+  This method will be called when your service is ready.
+
+  ## onDestroy
+
+  Clear up any mess you have made here.
+
+%h2 What To Use Services For
+
+:markdown
+
+  * Performing a download. When the download is complete, end the service. The download will continue even if the app is closed.
+  * Play a media file. Create the service when playback starts. Destroy it when playback ends. The media file will play in the background.
+  * Log location - Spark up a thread and log GPS coordinates for an exercise tracker.

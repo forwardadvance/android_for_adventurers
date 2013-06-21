@@ -1,0 +1,113 @@
+%h1 Make an Adventure UI
+
+:markdown
+
+
+  We're going to attempt to create a layout for the Adventure application we made in the last section. This exercise has 21 steps, so get your self a  nice cup of tea before you start...
+
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/1.png"}
+    %figcaption
+      %p 1. Tally ho, let's go! First, right click the res/layout folder and chose new > other. We're making a layout from scratch here to show how it's done.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/2.png"}
+    %figcaption
+      %p 2. Create a new Android XML layout File. Click Next.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/3.png"}
+    %figcaption
+      %p 3. Call your layout 'adventure_chooser'.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/4.png"}
+    %figcaption
+      %p 4. All XML files must have a root element. Choose LinearLayout as the root. Click Finish.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/5.png"}
+    %figcaption
+      %p 5. In the Package Explorer, open the res/layout/adventure_chooser.xml file.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/6.png"}
+    %figcaption
+      %p 6. Note the tabs at the bottom, you can swap between graphical view, and XML view.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/7.png"}
+    %figcaption
+      %p 7. Now drag in a TextView widget.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/8.png"}
+    %figcaption
+      %p 8. Double click the TextView widget you just dragged in and you'll see the XML. Find the android:text attribute and change it's value to "Welcome Adventurer."
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/9.png"}
+    %figcaption
+      %p 9. Return to graphical view and drag in a couple of buttons
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/10.png"}
+    %figcaption
+      %p 10. Edit the buttons in the same way. Change their text to "Map of Peru" and "Torch". Of course, if you can think of more adventurous buttons than this, do be my guest.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/11.png"}
+    %figcaption
+      %p 11. We should now have a layout like this.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/12.png"}
+    %figcaption
+      %p 12. There's another way to do this. Take a look at the properties panel. If this panel isn't visible click Window > Show View > Properties. I like to have this on the right next to the outline. If you can't see the value column, adjust the widths of the columns till you can see it. Click the Explore Jungle Temple button and check out the Text property in the properties panel. You'll see it reads "Explore Jungle Temple". You can set values here.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/13.png"}
+    %figcaption
+      %p 13. Let's clean up our layout. Select one of the buttons and use the properties panel to change the layout width to "match_parent".
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/14.png"}
+    %figcaption
+      %p 14. Notice how the button stretches to take up the full width of the screen.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/15.png"}
+    %figcaption
+      %p 15. Do the same for the other button.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/16.png"}
+    %figcaption
+      %p 16. Let's tell our Activity to render the new view. Open up src/package name/ChooserActivity.java
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/17.png"}
+    %figcaption
+      %p 17. Find the setContentView line and change it to: setContentView(R.layout.adventure_chooser);
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/18.png"}
+    %figcaption
+      %p 18. Let's run our app. Click Run > Run
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/19.png"}
+    %figcaption
+      %p 19. Choose Android Application.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/20.png"}
+    %figcaption
+      %p 20. The emulator will fire up. You may need to unlock the screen.
+%section
+  %figure
+    %img{:src => "/img/making-a-ui/21.png"}
+    %figcaption
+      %p 21. If all has gone to plan, you should now be able to see your app running in the emulator.
+

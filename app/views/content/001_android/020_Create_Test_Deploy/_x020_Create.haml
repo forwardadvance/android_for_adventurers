@@ -1,0 +1,59 @@
+
+/ TODO Refactor images to make this into an adventurers toolkit app.
+/ TODO Map of the World in text, vs. Do the Washing Up
+
+%h1 Create a Project
+
+:markdown
+  First we're going to use Eclipse to create a project. You'll need to have completed [setup](/setup) in order to do this.
+
+%section
+  %figure
+    %img{:src => "/img/create-project/1.png"}
+    %figcaption
+      %p 1. Click File > New > Project
+
+%section
+  %figure
+    %img{:src => "/img/create-project/2.png"}
+    %figcaption
+      %p 2. Choose Android project. The easiest way to find it is to start typing the word android into the search box. Click Next...
+
+%section
+  %figure
+    %img{:src => "/img/create-project/3.png"}
+    %figcaption
+      %p 3. Give your project a name of AdventurersToolkit. Choose "Create new project in the workspace", and "Use default location". Click Next...
+
+%section
+  %figure
+    %img{:src => "/img/create-project/4.png"}
+    %figcaption
+      %p 4. Choose an SDK to target. The list you see will depend on the platforms you downloaded previously. Generally you will choose the highest version number. Click next...
+
+%section
+  %figure
+    %img{:src => "/img/create-project/5.png"}
+    %figcaption
+      %p 5. Type in a package name. This is a reversed domain name, eg ly.trivial.adventurers_toolkit. Use any domain name you have. This prevents conflicts with other code.
+
+%section
+  %figure
+    %img{:src => "/img/create-project/6.png"}
+    %figcaption
+      %p 6. Choose a minimum SDK. I'm choosing 10 because I want to deploy to my Galaxy Note running Gingerbread. Your app will not be allowed to be installed on a device with a lower level SKD than the one you specify here.
+
+      %p The lower level SDK you specify, the more work you will have to do testing your app, but the more potential sales you will make.
+
+%section
+  %figure
+    %img{:src => "/img/create-project/7.png"}
+    %figcaption
+      %p 7. Choose to create an activity. Call it ChooserActivity. Click Finish.
+
+%section
+  %figure
+    %img{:src => "/img/create-project/8.png"}
+    %figcaption
+      %p 8. Your new project is now visible in the package explorer. Click the down arrow to unfold it.
+

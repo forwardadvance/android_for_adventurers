@@ -1,0 +1,21 @@
+%h1 Listing completed_exercises
+
+%table
+  %tr
+    %th Exercise
+    %th Person
+    %th
+    %th
+    %th
+
+  - @completed_exercises.each do |completed_exercise|
+    %tr
+      %td= completed_exercise.exercise_id
+      %td= completed_exercise.person_id
+      %td= link_to 'Show', completed_exercise
+      %td= link_to 'Edit', edit_completed_exercise_path(completed_exercise)
+      %td= link_to 'Destroy', completed_exercise, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Completed exercise', new_completed_exercise_path

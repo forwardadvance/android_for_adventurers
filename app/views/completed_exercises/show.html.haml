@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Exercise:
+  = @completed_exercise.exercise_id
+%p
+  %b Person:
+  = @completed_exercise.person_id
+
+= link_to 'Edit', edit_completed_exercise_path(@completed_exercise)
+\|
+= link_to 'Back', completed_exercises_path

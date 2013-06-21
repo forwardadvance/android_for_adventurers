@@ -1,0 +1,11 @@
+%header
+  =link_to root_path, class: "logo" do
+    Android for Adventurers
+  %nav.button_block
+    %ul
+      -if signed_in?
+        %li
+          =link_to "Sign out", logout_path, :class => "button"
+      -else
+        %li
+          =link_to "Sign in", login_path, :class => "button"

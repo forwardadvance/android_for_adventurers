@@ -1,0 +1,14 @@
+Lifecycle is good
+Sensors - add in sensor demo
+Not all sensors are present, so this exercise may not work - this took them a loong time.
+Give it to them and have them implement it.
+Signal Sticks
+Exercises - spirit level
+
+Afternoon
+Demo Spirit Level - Demo spirit level
+Give them option of running through Spirit level tutorial
+Nazi Game
+
+
+Remove Thermometer - temperature sensors are often not present

@@ -1,0 +1,44 @@
+%h1 Map of Peru
+
+:markdown
+  Every adventurer is probably going to need ready access to a map of Peru. Let's make the map of Peru button work.
+
+  One of the great features of Android is that we can issue intents to other applications. This means we never have to reinvent the wheel, and gives users a huge amount of flexibility since they can choose which apps will handle particular types of request.
+
+  Here we will fire up a map using the build in Google Map browser.
+
+  If you completed the previous exercise you should have a method something like this in your AdventureChooser.java file
+
+:ruby
+  code = <<-CODE
+    public void showMap(View v) {
+      Log.v("AdventureChooser", "showing map");
+    }
+  CODE
+
+=format_code(code)
+
+:markdown
+  In order to launch the Maps application, we create an intent object. The intent object needs a string and a URI.
+
+
+  1. The string constant: android.content.Intent.ACTION_VIEW just says that we want to open something.
+  2. The URI: geo:-8.9936,-74.685059?z=6 says what we want to open.
+
+  We must then call startActivity, passing it our intent. Android will take over from here, passing the uri to the correct activity. If more than one activity can handle the URI, Android will give the user the choice.
+
+
+:ruby
+  code = <<-CODE
+    public void showMap(View v) {
+      Uri map_uri = Uri.parse("geo:-8.9936,-74.685059?z=6");
+      Intent intent = new Intent(android.content.Intent.ACTION_VIEW,map_uri);
+      startActivity(intent);
+      Log.v("AdventureChooser", "showing map");
+    }
+  CODE
+
+=format_code(code)
+
+:markdown
+  You will need to run this application on your device since the emulator does not have a mapping application or internet connectivity installed by default.

@@ -1,0 +1,98 @@
+%h1 A UI for All Devices
+
+/ TODO Link to WIMM
+%p
+  Some devices are
+  %span.large MASSIVE
+  and some, like the wimm one <http://www.wimm.com/wimm_preview.html> are
+  %span.teeny teeny tiny.
+
+%img{ :src => "/img/part_3/teeny_vs_massive.png", :alt => "Some devices are teeny little squares. Some are massive." }
+
+%p Some are square, others rectangular.
+
+%p Some have rubbish cheap low resolution screens, others have gorgeous displays where you almost can't see the pixels.
+
+%p You as a developer have to think about all of this if you want to run with the big boys. Oh yeah.
+
+:markdown
+
+  ## Screen Sizes
+
+  Four screen sizes are supported:
+
+  * small
+  * normal
+  * large
+  * xlarge
+
+  ## Screen Resolutions
+
+  Four screen resolutions are supported
+
+  * ldpi - low density pixel information - 0.75 x normal
+  * mdpi - medium density - normal
+  * hdpi - high density - 1.5 x normal
+  * xhdpi - xtra high density - 2 x normal
+
+  ## Screen orientation
+
+  Three screen orientations are supported:
+
+  * portrait - which is the default
+  * landscape
+  * square
+
+
+%h1 Providing multiple layout files
+
+:markdown
+
+  To make multiple layouts you need to create subdirectories under your res/layout folder for each size and orientation you want to support.
+
+  For example:
+
+:ruby
+  code = <<-CODE
+    MyProject/
+    res/
+      layout/
+          main.xml
+      layout-land/
+          main.xml
+      layout-large/
+          main.xml
+      layout-large-land/
+          main.xml
+  CODE
+
+=format_code(code)
+
+:markdown
+  The device will automatically choose the layout that most accurately matches it's capabilities.
+
+%h1 Providing Multiple Image Assets
+
+:markdown
+
+  The drawable folders are where you put your images. If you don't provide images at all resolutions, images will be created for you by scaling down larger images, or scaling up smaller ones if no larger images are present.
+
+  You should have a folder structure like the following:
+
+:ruby
+  code = <<-CODE
+
+  MyProject/
+    res/
+      drawable-xhdpi/
+        awesomeimage.png
+      drawable-hdpi/
+        awesomeimage.png
+      drawable-mdpi/
+        awesomeimage.png
+      drawable-ldpi/
+        awesomeimage.png
+
+  CODE
+
+=format_code(code)
