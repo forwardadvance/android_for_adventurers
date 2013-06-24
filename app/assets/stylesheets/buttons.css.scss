@@ -16,10 +16,6 @@ button, a.button {
   @include sans;
   font-weight:600;
   display:block;
-  border-top:3px solid lighten($blue,20%);
-  border-left:3px solid lighten($blue,20%);
-  border-right:3px solid darken($blue,20%);
-  border-bottom:3px solid darken($blue,20%);
   padding:1px 10px;
   border-radius:5px;
   background:$blue;
@@ -34,10 +30,6 @@ button:hover, .button:hover {
   color:white;
   background:lighten($blue, 10%);
   box-shadow: inset 0 5px 5px 0px lighten($blue, 15%),inset 0 -5px 5px 0px darken($blue, 15%), 0 0 5px $blue;
-  border-bottom:3px solid lighten($blue,20%);
-  border-right:3px solid lighten($blue,20%);
-  border-left:3px solid darken($blue,20%);
-  border-top:3px solid darken($blue,20%);
 }
 button.large, a.button.large {
   font-size:$font-size*$relative_size;
