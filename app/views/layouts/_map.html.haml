@@ -1,13 +1,48 @@
+
+
+-content_for :css do
+  %style
+    -@sections.each do |section|
+      nav.map section.#{section.slug} {
+      left:#{section.x_pos}px;
+      top:#{section.y_pos}px;
+      }
+      -section.exercises.each do |exercise|
+        nav.map section.#{section.slug} li.#{exercise.slug} {
+        left:#{exercise.x_pos}px;
+        top:#{exercise.y_pos}px;
+        }
+
+-content_for :json do
+  %script
+    :ruby
+      connections = []
+      @sections.each do |section|
+        section.exercises.each do |exercise|
+          exercise.next_exercises.each do |next_exercise|
+            connections << {
+              source:".map .#{exercise.section.slug} .#{exercise.slug}",
+              target:".map .#{next_exercise.section.slug} .#{next_exercise.slug}"
+            }
+          end
+        end
+      end
+
+    var pageVars = {}
+    pageVars.connections = #{connections.to_json.html_safe}
+    -if admin_user?
+      pageVars.mapDraggable = true
+
+
+
 %nav.map
   -@sections.each do |section|
-
-    %section{ class: (section.slug + ((section == @section) ? " current" : " folded" )) }
+    %section{ class: (section.slug + ((section == @section) ? " current" : " not_current" )), :"data-update-path" => (my_section_path(section) if admin_user?) }
       %h2
-        -if section == @section
-          =section.title
-        -else
-          =link_to section.title, exercise_path(section.slug, section.first_exercise.slug)
+        =section.title
       %ul
         -section.exercises.each do |exercise|
-          %li{ :class => exercise.slug }
-            =link_to exercise.title, exercise_path(exercise.section.slug, exercise.slug)
+          %li{ :class => exercise.slug, :"data-update-path" => (my_exercise_path(exercise) if admin_user?) }
+            =link_to exercise_path(exercise.section.slug, exercise.slug) do
+              %i{ :class => "icon-circle"}
+              %span= exercise.title

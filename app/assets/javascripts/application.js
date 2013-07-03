@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-ui.min.js
+//= require jquery.jsPlumb-1.4.1-all-min.js
+//= require map

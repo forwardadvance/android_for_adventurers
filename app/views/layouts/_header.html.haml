@@ -6,11 +6,11 @@
       -if signed_in?
         -if admin_user?
           %li
-            =link_to "Admin", rails_admin_path, :class => "button"
+            =link_to "Admin", rails_admin_path, :class => "button small"
         %li
-          =link_to "Sign out", logout_path, :class => "button"
+          =link_to "Sign out", logout_path, :class => "button small"
       -else
         %li
-          =link_to "Learn Android", signup_path, :class => "button"
+          =link_to "Learn Android", signup_path, :class => "button small"
         %li
-          =link_to "Sign in", login_path, :class => "button"
+          =link_to "Sign in", login_path, :class => "button small"

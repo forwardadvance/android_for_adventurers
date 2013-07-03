@@ -22,11 +22,17 @@ class ExercisesController < ApplicationController
     end
   end
 
+  def update
+    @exercise = Exercise.find params[:id]
+    @exercise.update exercise_params
+    render :text => "success"
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:title, :section_id)
+      params.require(:exercise).permit(:title, :section_id, :x_pos, :y_pos)
     end
 
     def set_current_exercise

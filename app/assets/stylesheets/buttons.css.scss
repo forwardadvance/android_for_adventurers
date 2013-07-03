@@ -19,7 +19,7 @@ button, a.button {
   padding:1px 10px;
   border-radius:5px;
   background:$blue;
-  box-shadow: inset 0 5px 5px 0px lighten($blue, 15%),inset 0 -5px 5px 0px darken($blue, 15%);
+  box-shadow: inset 0 1px  lighten($blue, 15%),inset 0 -1px darken($blue, 35%);
   color: $light_grey;
   text-shadow: 0px 1px lighten($blue, 30%), 0px -2px darken($blue, 70%);
   text-decoration:none;
@@ -30,6 +30,9 @@ button:hover, .button:hover {
   color:white;
   background:lighten($blue, 10%);
   box-shadow: inset 0 5px 5px 0px lighten($blue, 15%),inset 0 -5px 5px 0px darken($blue, 15%), 0 0 5px $blue;
+}
+button.small, a.button.small {
+  font-size:$font-size/1.25;
 }
 button.large, a.button.large {
   font-size:$font-size*$relative_size;

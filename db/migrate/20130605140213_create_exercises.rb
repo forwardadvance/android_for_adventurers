@@ -7,10 +7,12 @@ class CreateExercises < ActiveRecord::Migration
       t.string :section_id
       t.boolean :is_first_exercise
       t.boolean :is_last_exercise
-      [:up, :up_right, :right, :down_right, :down, :down_left, :left, :up_left].each do |direction|
-        t.string :"#{direction}_id"
-        t.string :"#{direction}_description"
-      end
+      t.float :x_pos, :default => 0
+      t.float :y_pos, :default => 0
+      # [:up, :up_right, :right, :down_right, :down, :down_left, :left, :up_left].each do |direction|
+      #   t.string :"#{direction}_id"
+      #   t.string :"#{direction}_description"
+      # end
       t.timestamps
     end
     add_index :exercises, :slug

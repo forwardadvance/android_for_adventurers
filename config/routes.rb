@@ -13,7 +13,13 @@ SpaceJavascript::Application.routes.draw do
   get "splash" => "splash#show", :as => :splash
   get "take_me_back" => "take_me_back#index", :as => :take_me_back
 
+
+  get "map" => "map#show", :as => :map
+
+  resources :my_sections, :only => [:edit, :update], :controller => :sections
+  resources :my_exercises, :only => [:edit, :update], :controller => :exercises
   get "/:section_slug/:exercise_slug" => "exercises#show", :as => :exercise
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

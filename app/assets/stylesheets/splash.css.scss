@@ -1,18 +1,19 @@
 @import 'includes';
+@import "popgrid/popgrid";
 
 .splash {
   h1 {
     text-align:center;
   }
   figure {
-    @include col(4);
+    @include span(4);
     margin:0 auto;
   }
   p.join {
     padding-top:50px;
 
     a.button {
-      @include col(6);
+      @include span(6);
       margin:0 auto;
     }
   }

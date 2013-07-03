@@ -28,4 +28,8 @@ header {
   .button_block {
     float:right
   }
+  a.button {
+    border:1px solid darken($blue,5%);
+    background:darken($blue,15%);
+  }
 }

@@ -24,9 +24,3 @@ $line_height: 1.5em;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
-
-@mixin col($a) {
-  width: ($col_width * $a) + ($gutter * ($a - 1));
-  margin-left: $gutter;
-  margin-right: $gutter;
-}

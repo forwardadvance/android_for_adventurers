@@ -1,11 +1,12 @@
 @import "includes";
+@import "popgrid/popgrid";
 $width: 200px;
 $padding: 0.5em;
 $icon_size:3em;
 .exercises {
-  article.container {
-    float:right;
-    @include col(9);
+  @include row;
+  article {
+    @include span(8);
     margin-bottom:200px;
     nav.next {
       @include transition;
@@ -46,8 +47,7 @@ $icon_size:3em;
   }
 
   nav.map {
-    float:left;
-    @include col(4);
-    margin-left:$gutter
+    @include span(4);
+    position:relative;
   }
 }

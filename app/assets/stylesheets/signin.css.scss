@@ -1,7 +1,8 @@
 @import 'includes';
+@import "popgrid/popgrid";
 .logins {
   .container {
-    @include col(6);
+    @include span(6);
     margin:0 auto;
   }
   form {

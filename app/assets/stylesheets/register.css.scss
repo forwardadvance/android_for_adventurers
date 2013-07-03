@@ -1,7 +1,8 @@
 @import 'includes';
+@import "popgrid/popgrid";
 .people.new, .people.create {
   .container {
-    @include col(8);
+    @include span(8);
     margin:0 auto;
   }
   form {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130613070517) do
+ActiveRecord::Schema.define(version: 20130626092633) do
 
   create_table "answers", force: true do |t|
     t.integer  "person_id"
@@ -50,22 +50,8 @@ ActiveRecord::Schema.define(version: 20130613070517) do
     t.string   "section_id"
     t.boolean  "is_first_exercise"
     t.boolean  "is_last_exercise"
-    t.string   "up_id"
-    t.string   "up_description"
-    t.string   "up_right_id"
-    t.string   "up_right_description"
-    t.string   "right_id"
-    t.string   "right_description"
-    t.string   "down_right_id"
-    t.string   "down_right_description"
-    t.string   "down_id"
-    t.string   "down_description"
-    t.string   "down_left_id"
-    t.string   "down_left_description"
-    t.string   "left_id"
-    t.string   "left_description"
-    t.string   "up_left_id"
-    t.string   "up_left_description"
+    t.float    "x_pos",             default: 0.0
+    t.float    "y_pos",             default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,6 +63,14 @@ ActiveRecord::Schema.define(version: 20130613070517) do
     t.string   "exercise_slug"
     t.string   "section_slug"
     t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "links", force: true do |t|
+    t.integer  "prev_exercise_id"
+    t.integer  "next_exercise_id"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,6 +102,7 @@ ActiveRecord::Schema.define(version: 20130613070517) do
     t.string   "name"
     t.string   "pirate_name"
     t.string   "email"
+    t.string   "source"
     t.string   "level"
     t.string   "current_exercise_id"
     t.boolean  "admin",               default: false
@@ -145,6 +140,8 @@ ActiveRecord::Schema.define(version: 20130613070517) do
     t.string   "slug"
     t.string   "path"
     t.integer  "course_id"
+    t.float    "x_pos",      default: 0.0
+    t.float    "y_pos",      default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

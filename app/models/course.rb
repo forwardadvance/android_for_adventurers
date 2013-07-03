@@ -36,6 +36,7 @@ class Course < ActiveRecord::Base
           s.exercise :test do |e|
             e.title = "Test in a Simulator!"
             e.down :deploy, "Enough testing, let's deploy it to you phone!"
+            e.save
           end
           s.exercise :deploy do |e|
             e.title = "Deploy to your Phone!"
